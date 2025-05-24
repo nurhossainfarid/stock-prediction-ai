@@ -148,3 +148,104 @@ function renderReport(output) {
 // });
 
 // console.log("Response: ", response.choices[0].message.content);
+
+// import OpenAi from "openai";
+// import OpenAI from "openai";
+
+// const openai = new OpenAi({
+//   apiKey: import.meta.env.VITE_OPENAI_API_KEY,
+//   dangerouslyAllowBrowser: true,
+// });
+
+// const messages = [
+//   {
+//     role: "system",
+//     content:
+//       "You are a rap genius. When give a topic, you will 5 line write a rap about it.",
+//   },
+//   {
+//     role: "user",
+//     content: "Television",
+//   },
+// ];
+
+// const response = await openai.chat.completions.create({
+//   model: "gpt-4.1",
+//   messages: messages,
+// });
+
+// // console.log(response.choices[0].message.content);
+
+// /**
+//  * @param {string} topic - What to explain
+//  * @param {string} audience - who the explanation is for
+//  * @param {number} maxTokens - max token length for output
+//  */
+
+// async function explainTopic(topic, audience = "10-year-old", maxTokens = 300) {
+//   const prompt = `Explain ${topic} to a ${audience} in simple terms. Keep it clear, friendly, and within ${maxTokens} tokens.`;
+
+//   const completion = await openai.chat.completions.create({
+//     model: "gpt-4.1",
+//     messages: [
+//       {
+//         role: "system",
+//         content: "You are a friendly and clear teacher.",
+//       },
+//       {
+//         role: "user",
+//         content: prompt,
+//       },
+//     ],
+//     max_tokens: maxTokens,
+//     temperature: 0.7,
+//   });
+
+//   console.log("Explanation:", completion.choices[0].message.content);
+// }
+
+// explainTopic("Quantum Computing", "10-year-old", 250);
+
+// Fine-tuning example
+
+// import OpenAI from "openai";
+
+// const openai = new OpenAI({ dangerouslyAllowBrowser: true });
+
+/* Upload training data */
+// const upload = await openai.files.create({
+//     file: await fetch("/motivationalBotData.jsonl"),
+//     purpose: "fine-tune"
+// })
+// console.log(upload)
+
+// const upload_id = "file-MSkeJ8DRcmgFkGcdjit2Wa";
+/* Use file ID to create job */
+// const fineTune = await openai.fineTuning.jobs.create({
+//     training_file: "file-MSkeJ8DRcmgFkGcdjit2Wa",
+//     model: "gpt-3.5-turbo"
+// })
+
+// console.log(fineTune)
+
+// const fineTune_id = "ftjob-zuCmZZpt1n5bO0V1GwAHqmAh";
+// /* Check status of job */
+// // const fineTuneStatus = await openai.fineTuning.jobs.retrieve("ftjob-zuCmZZpt1n5bO0V1GwAHqmAh")
+// // console.log(fineTuneStatus)
+
+// const fineTuneModel = "ftjob-zuCmZZpt1n5bO0V1GwAHqmAh";
+// /* Test our fine-tuned model */
+// const messages = [
+//   {
+//     role: "user",
+//     content: "I don't know what to do with my life",
+//   },
+// ];
+// async function getResponse() {
+//   const response = await openai.chat.completions.create({
+//     model: "ft:gpt-3.5-turbo-0125:scrimba::96fwXrQX",
+//     messages: messages,
+//   });
+//   return response.choices[0].message.content;
+// }
+// console.log(await getResponse());
