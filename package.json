@@ -1,0 +1,16 @@
+{
+  "name": "stock-predictions-ai",
+  "type": "module",
+  "description": "https://scrimba.com/the-ai-engineer-path-c02v/~03/s0d7ds7fe9/head",
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "openai": "^4.98.0",
+    "stock-predictions-ai": "file:",
+    "vite": "latest"
+  }
+}
