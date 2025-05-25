@@ -2,7 +2,6 @@
   "name": "stock-predictions-ai",
   "type": "module",
   "description": "https://scrimba.com/the-ai-engineer-path-c02v/~03/s0d7ds7fe9/head",
-  "packageManager": "yarn@3.6.3",
   "scripts": {
     "start": "vite",
     "dev": "vite",
